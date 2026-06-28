@@ -7,7 +7,7 @@ struct LunarBarApp: App {
     var body: some Scene {
         MenuBarExtra {
             MainPopupView(viewModel: calendarViewModel)
-                .frame(width: 360, height: 430)
+                .frame(width: 360, height: 520)
                 .background(.thinMaterial)
         } label: {
             Image(systemName: "calendar")
