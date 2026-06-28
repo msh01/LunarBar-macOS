@@ -1,36 +1,36 @@
 # LunarBar
 
-LunarBar is a lightweight macOS menu bar calendar app built with SwiftUI. It aims to provide a polished native popover for the Gregorian calendar, Chinese lunar calendar, public holiday make-up workday labels, and weather.
+LunarBar 是一个轻量级、原生风格的 macOS 菜单栏月历应用。它的目标是在顶部菜单栏中提供一个精致的悬浮面板，集中展示公历日历、中国农历、二十四节气、法定节假日及调休补班标签，以及实时天气。
 
-The project is currently in early development. Step 1 has implemented the menu bar entry, a floating SwiftUI window, and the basic 7 x 6 calendar grid.
+项目目前处于早期开发阶段。当前已经完成 Step 1：应用入口、菜单栏常驻、隐藏 Dock 图标，以及基础的 7 x 6 日历网格。
 
-## Features
+## 功能特性
 
-- Native macOS menu bar app powered by `MenuBarExtra`
-- Hidden Dock icon via `LSUIElement`
-- Floating panel using `.menuBarExtraStyle(.window)`
-- SwiftUI-only interface
-- MVVM-oriented project structure
-- 7 x 6 month grid with previous and next month padding days
-- Monday-first calendar layout for Chinese locale
-- Dark Mode friendly base styling
-- GitHub Actions macOS build workflow
+- 使用 macOS 13+ 的 `MenuBarExtra` 实现原生菜单栏应用
+- 通过 `LSUIElement` 隐藏 Dock 图标
+- 使用 `.menuBarExtraStyle(.window)` 弹出悬浮窗口
+- 完全使用 SwiftUI 构建界面
+- 采用 MVVM 风格组织代码
+- 自绘 7 x 6 月历网格，包含上月和下月补白日期
+- 周一作为每周起始日，更贴近中文用户习惯
+- 基础样式支持深色模式
+- 已配置 GitHub Actions 云端 macOS 构建
 
-## Roadmap
+## 开发路线
 
-- Step 1: Basic macOS menu bar app and calendar grid
-- Step 2: Chinese lunar calendar and solar terms
-- Step 3: Public holiday and make-up workday badges
-- Step 4: Weather header and user settings for API keys
+- Step 1：创建 macOS 菜单栏应用和基础日历网格
+- Step 2：集成中国农历和二十四节气
+- Step 3：接入法定节假日和调休补班角标
+- Step 4：实现天气卡片和 API Key 设置界面
 
-## Requirements
+## 运行要求
 
-- macOS 13 or later
-- Xcode 15 or later for local development
+- macOS 13 或更高版本
+- 本地开发需要 Xcode 15 或更高版本
 
-You do not need Xcode just to download and try a build artifact from GitHub Actions, but local development and debugging require Xcode.
+如果只是下载 GitHub Actions 生成的构建产物进行体验，不需要安装 Xcode。但如果要在本地开发、调试和运行源码，仍然需要完整 Xcode。
 
-## Project Structure
+## 项目结构
 
 ```text
 App/
@@ -50,17 +50,17 @@ Resources/
     macos-build.yml
 ```
 
-## Build Locally
+## 本地构建
 
-Open the Xcode project:
+打开 Xcode 工程：
 
 ```bash
 open LunarBar.xcodeproj
 ```
 
-Then select the `LunarBar` scheme and run it on `My Mac`.
+然后在 Xcode 中选择 `LunarBar` scheme，运行目标选择 `My Mac`，点击运行即可。
 
-Or build from the command line after selecting a full Xcode installation:
+如果已经安装并选择了完整 Xcode，也可以使用命令行构建：
 
 ```bash
 xcodebuild \
@@ -71,28 +71,28 @@ xcodebuild \
   build
 ```
 
-## Build in GitHub Actions
+## 使用 GitHub Actions 云端构建
 
-This repository includes a macOS GitHub Actions workflow. On push to `main`, it builds the app with Xcode and uploads a zipped debug app artifact.
+本仓库已经配置了 macOS GitHub Actions workflow。每次推送到 `main` 分支时，GitHub 会在云端使用 Xcode 构建应用，并上传一个 debug 版本的 `.app` 压缩包。
 
-To download a cloud build:
+下载云端构建产物：
 
-1. Open the repository on GitHub.
-2. Go to the `Actions` tab.
-3. Select the latest `macOS Build` run.
-4. Download the `LunarBar-debug` artifact.
-5. Unzip it and run `LunarBar.app`.
+1. 打开 GitHub 仓库页面。
+2. 进入 `Actions` 标签页。
+3. 选择最新的 `macOS Build` 运行记录。
+4. 在页面底部下载 `LunarBar-debug` artifact。
+5. 解压后运行 `LunarBar.app`。
 
-Because the debug artifact is not Developer ID signed or notarized, macOS may block it on first launch. You can right-click the app and choose `Open`, or remove the quarantine attribute:
+由于 GitHub Actions 生成的是未经过 Developer ID 签名和 notarization 公证的 debug 构建，macOS 第一次打开时可能会拦截。可以右键点击 App 后选择“打开”，也可以移除 quarantine 属性：
 
 ```bash
 xattr -dr com.apple.quarantine /path/to/LunarBar.app
 ```
 
-## Current Status
+## 当前状态
 
-The app currently displays a basic calendar panel from the menu bar. Lunar dates, solar terms, holiday badges, weather, and settings are planned for the next steps.
+当前版本可以在菜单栏显示日历图标，并弹出基础月历面板。农历、节气、节假日角标、天气和设置界面会在后续步骤中继续实现。
 
-## License
+## 许可证
 
-License has not been selected yet.
+暂未选择许可证。
