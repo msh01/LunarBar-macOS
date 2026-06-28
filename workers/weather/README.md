@@ -35,3 +35,4 @@ CLOUDFLARE_API_TOKEN
 ```
 
 The token needs permission to deploy Workers for the Cloudflare account that owns this Worker.
+The Cloudflare account ID is configured in `wrangler.jsonc`.

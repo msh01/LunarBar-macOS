@@ -2,6 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "lunarbar-weather",
   "main": "src/index.ts",
+  "account_id": "6bd75c84706f8cff84789a8632c3f0bb",
   "compatibility_date": "2026-06-28",
   "compatibility_flags": ["nodejs_compat"],
   "observability": {
