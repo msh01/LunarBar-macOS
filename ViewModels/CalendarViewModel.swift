@@ -166,14 +166,23 @@ private struct LunarCalendarFormatter {
     }
 
     func lunarText(for date: Date) -> String {
-        let components = chineseCalendar.dateComponents([.month, .day, .isLeapMonth], from: date)
+        let components: DateComponents
+        let isLeapMonth: Bool
+
+        if #available(macOS 14, *) {
+            components = chineseCalendar.dateComponents([.month, .day, .isLeapMonth], from: date)
+            isLeapMonth = components.isLeapMonth == true
+        } else {
+            components = chineseCalendar.dateComponents([.month, .day], from: date)
+            isLeapMonth = false
+        }
 
         guard let month = components.month, let day = components.day else {
             return ""
         }
 
         if day == 1 {
-            return monthText(month: month, isLeapMonth: components.isLeapMonth == true)
+            return monthText(month: month, isLeapMonth: isLeapMonth)
         }
 
         return dayText(day)
