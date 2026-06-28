@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Show Xcode version
         run: xcodebuild -version
@@ -42,7 +42,7 @@ jobs:
           ditto -c -k --sequesterRsrc --keepParent "$APP_PATH" LunarBar-debug.zip
 
       - name: Upload app artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: LunarBar-debug
           path: LunarBar-debug.zip
