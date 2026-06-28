@@ -9,7 +9,7 @@
     "head_sampling_rate": 1
   },
   "vars": {
-    "QWEATHER_API_HOST": "https://devapi.qweather.com",
+    "QWEATHER_API_HOST": "https://n44t2d7nnx.re.qweatherapi.com",
     "CACHE_TTL_SECONDS": "1800",
     "STALE_TTL_SECONDS": "21600"
   },
