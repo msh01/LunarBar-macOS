@@ -23,3 +23,15 @@ wrangler secret put QWEATHER_PRIVATE_KEY
 ```
 
 Do not commit QWeather private keys to GitHub.
+
+## GitHub Actions Deployment
+
+Pushes to `main` that change files under `workers/weather/**` trigger `.github/workflows/deploy-weather-worker.yml`.
+
+The repository must define this GitHub Actions secret:
+
+```text
+CLOUDFLARE_API_TOKEN
+```
+
+The token needs permission to deploy Workers for the Cloudflare account that owns this Worker.

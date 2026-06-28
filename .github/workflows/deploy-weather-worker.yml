@@ -1,0 +1,30 @@
+name: Deploy Weather Worker
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "workers/weather/**"
+      - ".github/workflows/deploy-weather-worker.yml"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy Weather Worker
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: workers/weather
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: workers/weather
+          command: deploy
